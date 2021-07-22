@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <!-- Required meta tags -->
@@ -27,16 +28,20 @@
         <ul class="navbar-nav mr-auto">
         </ul>
 
-        <div class="form-inline my-2 my-lg-0">
+        <form sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+            <button class="btn btn-outline-success my-2 my-sm-0">Выйти</button>
+        </form>
+        <div sec:authorize="isAnonymous()" class="form-inline my-2 my-lg-0">
             <a class="btn btn-outline-success my-2 mr-2 my-sm-0" th:href="@{/login}">Логин</a>
         </div>
+    </div>
     </div>
 </nav>
 
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <form action="#" method="post">
+            <form th:action="@{/authenticateTheUser}" method="post">
                 <div class="form-group">
                     <label for="username">Имя пользователя</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="Введите имя пользователя">
