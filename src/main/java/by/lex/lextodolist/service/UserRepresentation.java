@@ -1,16 +1,17 @@
 package by.lex.lextodolist.service;
 
 
+import javax.validation.constraints.NotBlank;
 
 public class UserRepresentation {
 
     private Long id;
 
-
+    @NotBlank // не пустое ли у нас это поле
     private String username;
-
+    @NotBlank
     private String password;
-
+    @NotBlank
     private String repeatPassword;
 
     public Long getId() {
