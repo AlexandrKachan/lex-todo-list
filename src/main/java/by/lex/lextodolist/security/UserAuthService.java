@@ -28,7 +28,7 @@ public class UserAuthService  implements UserDetailsService { //имплемен
                 .map(user -> new User( // с помощью метода map результат который был возвращен с помощью лямбда выражений преобразовать в User из пакетв Spr Sec
                         user.getUsername(), // параметр имя пользователя
                         user.getPassword(), // пароль
-                        Collections.singletonList(new SimpleGrantedAuthority("USER"))// TODO когданибудь  список ролей
+                        Collections.singletonList(new SimpleGrantedAuthority("USER"))
                 ))
                 .orElseThrow(() ->new UsernameNotFoundException("Пользователь не найден"));
     }

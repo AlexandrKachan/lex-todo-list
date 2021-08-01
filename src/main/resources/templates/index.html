@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <head>
@@ -9,7 +9,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Список дел</title>
 </head>
@@ -20,8 +21,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
     <!-- Выводим имя зарегистрированного пользователя -->
-    Добро пожаловать :  <span sec:authentication="name">Bob</span>
-
+    Добро пожаловать : <span sec:authentication="name">Bob</span>
 
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -46,7 +46,8 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div class="container">
     <form method="post" th:action="@{/}" th:object="${item}">
         <div class="input-group mb-3 mt-3">
-            <input type="text" th:field="*{name}" class="form-control" placeholder="Новая задача" aria-label="Новая задача" aria-describedby="basic-addon2">
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Новая задача"
+                   aria-label="Новая задача" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <button class="btn btn-primary" type="submit">Добавить</button>
             </div>
@@ -64,7 +65,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         <!-- Отображение таблицы -->
         <tbody>
         <tr th:each="item : ${items}"> <!-- Связывает атрибут item с контролером  -->
-            <th scope="row" th:text="${item.id}">1</th>
+
+<!--            <th scope="row"-->
+<!--                th:text="${item.id}">1-->
+<!--            </th>-->
+
+
             <td th:text="${item.name}">Выучить Java</td>
             <td>
                 <form th:action="@{/{id}(id=${item.id})}" th:method="delete">
@@ -83,13 +89,41 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         </tbody>
     </table>
 </div>
-
+<!--<section class="tasks">-->
+<!--    <header class="tasks-header">-->
+<!--        <h2 class="tasks-title">Tasks</h2>-->
+<!--        <a href="index.html" class="tasks-lists">Lists</a>-->
+<!--    </header>-->
+<!--    <fieldset class="tasks-list">-->
+<!--        <label class="tasks-list-item">-->
+<!--            <input type="checkbox" name="task_1" value="1" class="tasks-list-cb" checked>-->
+<!--            <span class="tasks-list-mark"></span>-->
+<!--            <span class="tasks-list-desc">On your mark</span>-->
+<!--        </label>-->
+<!--        <label class="tasks-list-item">-->
+<!--            <input type="checkbox" name="task_2" value="1" class="tasks-list-cb" checked>-->
+<!--            <span class="tasks-list-mark"></span>-->
+<!--            <span class="tasks-list-desc">Get set</span>-->
+<!--        </label>-->
+<!--        <label class="tasks-list-item">-->
+<!--            <input type="checkbox" name="task_3" value="1" class="tasks-list-cb">-->
+<!--            <span class="tasks-list-mark"></span>-->
+<!--            <span class="tasks-list-desc">Go!</span>-->
+<!--        </label>-->
+<!--    </fieldset>-->
+<!--</section>-->
 
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>

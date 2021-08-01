@@ -1,4 +1,4 @@
-package by.lex.lextodolist.controllers;
+package by.lex.lextodolist.controller;
 
 import by.lex.lextodolist.persist.TodoItem;
 import by.lex.lextodolist.persist.TodoItemRepository;

@@ -1,7 +1,12 @@
 package by.lex.lextodolist.persist;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+
 //данные для БД
 @Entity // сущность хранящаяся в БД
 @Table(name = "todo_items") // имя таблицы
@@ -13,6 +18,18 @@ public class TodoItem {
 
     @Column(nullable = false) // не допустима пустая строка
     private String name;
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private LocalDate date;
 
 
     @ManyToOne // связываем пользователей и их дела

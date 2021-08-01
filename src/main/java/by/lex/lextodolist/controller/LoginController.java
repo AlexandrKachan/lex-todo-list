@@ -1,4 +1,4 @@
-package by.lex.lextodolist.controllers;
+package by.lex.lextodolist.controller;
 
 import by.lex.lextodolist.service.UserRepresentation;
 import by.lex.lextodolist.service.UserService;
@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 
 @Controller
-public class LoginController {
+public class LoginController { //регистрация пользователей и их вход в систему
     //внедряем UserService
     private final UserService userService;
 
